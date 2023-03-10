@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
+    <head th:replace="~{layout/plantilla :: head}">
         <title>TechShop</title>
         <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+        <header th:replace="~{layout/plantilla :: header}"></header>
+        
         <h2>Datos de Cliente</h2>
         <hr>
         <br>
-        <a th:href="@{/}">Regresar</a>
+        <a th:href="@{/cliente/listado}">Regresar</a>
         
         <form th:action="@{/cliente/guardar}"
               method="post"
@@ -38,5 +39,6 @@
             
         </form>
         
+        <header th:replace="~{layout/plantilla :: footer}"></header>
     </body>
 </html>

@@ -1,42 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
+    <head th:replace="~{layout/plantilla :: head}">
         <title>TechShop</title>
         <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h2>Listado de Clientes</h2>
-        <hr>
-        <br>
-        <a th:href="@{/cliente/nuevo}">Nuevo Cliente</a>
-        
-        <div th:if="${clientes != null and !clientes.empty}">
-            
-            
-            <table border="2">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Correo</th>
-                        <th>Telefono</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="cliente : ${clientes}">
-                        <td>[[${cliente.nombre}]]</td>
-                        <td>[[${cliente.apellidos}]]</td>
-                        <td>[[${cliente.correo}]]</td>
-                        <td>[[${cliente.telefono}]]</td>
-                        <td><a th:href="@{/cliente/eliminar/} + ${cliente.idCliente}">Eliminar</a>
-                        <a th:href="@{/cliente/modificar/} + ${cliente.idCliente}">Modificar</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div th:if="${clientes == null or clientes.empty}">
-            <h1>NO hay clientes guardados</h1>
-        </div>
+        <header th:replace="~{layout/plantilla :: header}"></header>
+
+        <footer th:replace="~{layout/plantilla :: footer}"></footer>
     </body>
 </html>
