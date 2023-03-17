@@ -1,13 +1,13 @@
 package com.tienda.controller;
 
 import com.tienda.domain.Cliente;
-import com.tienda.service.ClienteServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import com.tienda.service.ClientesServices;
 
 /**
  *
@@ -19,13 +19,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ClienteController { //Esta clase controla todos los aspectos de clientes
     
     @Autowired
-    private ClienteServices clienteService;
+    private ClientesServices clienteService;
     //Mapeo de una ruta
     @GetMapping("/listado")
     public String inicio(Model model) {
         var clientes = clienteService.getClientes();
         
         model.addAttribute("clientes", clientes);
+        model.addAttribute("totalClientes", clientes.size());
         
         return "/cliente/listado";
     }
