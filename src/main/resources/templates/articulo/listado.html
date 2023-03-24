@@ -4,13 +4,16 @@
         <title>TechShop</title>
         <meta charset="UTF-8"/>
     </head>
+    <!-- le estamos diciendo al servidor web lo que debe ir en el head que lo 
+    reemplace definido en el folder{layout/plantilla :: head}-->
     <body>
-        <header th:replace="~{layout/plantilla :: header}"></header>
+        <header th:replace="~{layout/plantilla :: header}"/>
+          <!--Inconrporar bloque de etiquetas en el header -->
+          
+        <section th:replace="~{articulo/fragmentos :: botonesAgregar}"/>
+        <section th:replace="~{articulo/fragmentos :: agregarArticulo}"/>
+        <section th:replace="~{articulo/fragmentos :: listadoArticulos}"/> 
         
-        <section th:replace="~{cliente/fragmentos :: botonesAgregar}"></section>
-        <section th:replace="~{cliente/fragmentos :: agregarCliente}"></section>
-        <section th:replace="~{cliente/fragmentos :: listadoClientes}"></section>
-        
-        <footer th:replace="~{layout/plantilla :: footer}"></footer>
-    </body>
+        <footer th:replace="~{layout/plantilla :: footer}"/>
+    </body>
 </html>

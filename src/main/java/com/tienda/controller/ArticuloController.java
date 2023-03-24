@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.tienda.service.ArticuloServices;
+import com.tienda.service.CategoriaServices;
 
 /**
  *
@@ -20,13 +21,19 @@ public class ArticuloController { //Esta clase controla todos los aspectos de ar
     
     @Autowired
     private ArticuloServices articuloService;
+
+    @Autowired
+    private CategoriaServices categoriaService;
+    
     //Mapeo de una ruta
     @GetMapping("/listado")
     public String inicio(Model model) {
         var articulo = articuloService.getArticulos(false);
+        var categoria = categoriaService.getCategorias(false);
         
         model.addAttribute("articulo", articulo);
         model.addAttribute("totalArticulo", articulo.size());
+        model.addAttribute("categoria", categoria);
         
         return "/articulo/listado";
     }
@@ -52,7 +59,10 @@ public class ArticuloController { //Esta clase controla todos los aspectos de ar
     @GetMapping("/modificar/{idArticulo}")
     public String modificaArticulo(Articulo articulo, Model model){
         articulo = articuloService.getArticulo(articulo);
+        var categoria = categoriaService.getCategorias(false);
         model.addAttribute("articulo", articulo);
+        model.addAttribute("categoria", categoria);
+        
         return "/articulo/modifica";
     }
 }

@@ -20,6 +20,7 @@ public class ClienteController { //Esta clase controla todos los aspectos de cli
     
     @Autowired
     private ClientesServices clienteService;
+    
     //Mapeo de una ruta
     @GetMapping("/listado")
     public String inicio(Model model) {

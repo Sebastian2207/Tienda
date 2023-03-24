@@ -20,6 +20,7 @@ public class CategoriaController { //Esta clase controla todos los aspectos de c
     
     @Autowired
     private CategoriaServices categoriaService;
+    
     //Mapeo de una ruta
     @GetMapping("/listado")
     public String inicio(Model model) {
