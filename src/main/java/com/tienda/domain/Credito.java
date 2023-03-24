@@ -20,4 +20,11 @@ public class Credito implements Serializable {
     private Long idCredito;
     
     private double limite;
+
+    public Credito() {
+    }
+
+    public Credito(double limite) {
+        this.limite = limite;
+    }
 }

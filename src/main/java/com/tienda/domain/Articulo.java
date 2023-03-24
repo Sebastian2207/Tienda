@@ -26,14 +26,15 @@ public class Articulo implements Serializable {
     private String imagen;
     private boolean activo;
     
+    //Relacion credito
     @JoinColumn(name="id_categoria", referencedColumnName="id_categoria")
     @ManyToOne
-    private Credito categoria;
+    private Categoria categoria;
 
     public Articulo() {
     }
 
-    public Articulo(String descripcion, String detalle, int precio, int existencias, String imagen, boolean activo, Credito categoria) {
+    public Articulo(String descripcion, String detalle, int precio, int existencias, String imagen, boolean activo, Categoria categoria) {
         this.descripcion = descripcion;
         this.detalle = detalle;
         this.precio = precio;
