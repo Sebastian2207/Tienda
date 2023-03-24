@@ -41,8 +41,7 @@ public class ClienteServiceImpl implements ClientesServices{
     public void saveCliente(Cliente cliente) {
         Credito credito = cliente.getCredito();
         credito = creditoDao.save(credito);
-        cliente.setCredito(credito);
-        
         clienteDao.save(cliente);
+        cliente.setCredito(credito);
     } 
 }
